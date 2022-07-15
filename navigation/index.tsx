@@ -19,6 +19,8 @@ import TabTwoScreen from '../screens/TabTwoScreen';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
 import AccountsComponent from "../screens/parallax-header";
+import YodaScreen from "../screens/parallax-header";
+import FlatListExample from "../screens/simpleFlatlist";
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -65,9 +67,16 @@ function BottomTabNavigator() {
       }}>
       <BottomTab.Screen
         name="TabOne"
-        component={AccountsComponent}
+        component={YodaScreen}
         options={({ navigation }: RootTabScreenProps<'TabOne'>) => ({
           title: 'Tab One',
+          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+        })}
+      /><BottomTab.Screen
+        name="TabTwo"
+        component={FlatListExample}
+        options={({ navigation }: RootTabScreenProps<'TabTwo'>) => ({
+          title: 'TabTwo',
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
         })}
       />
